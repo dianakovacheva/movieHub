@@ -6,12 +6,12 @@ import "./index.css";
 
 import "@fontsource/inter";
 
-import App from "./App.jsx";
 import Login from "./components/login/login.jsx";
 import PageNotFound from "./components/page-not-found/PageNotFound.jsx";
+import Home from "./Home.jsx";
 
 const router = createBrowserRouter([
-  { path: "/", element: <App /> },
+  { path: "/", element: <Home /> },
   { path: "/login", element: <Login /> },
   { path: "*", element: <PageNotFound /> },
 ]);
