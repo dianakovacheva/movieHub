@@ -54,4 +54,7 @@ export default function Home() {
 
   // }
 
+  return (
+    <>{movies ? <MovieCard movies={movies} /> : <p>No movies to show...</p>}</>
+  );
 }
