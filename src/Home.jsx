@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from "react";
+
 import "./Home.css";
 
-const BASE_URL = "https://api.themoviedb.org/3/discover/movie";
-const API_KEY = "?api_key=2c97b31d10e9dcecfd977f6061f863d6";
+import MovieCard from "./components/movie-card/MovieCard";
+
+const BASE_URL =
+  "https://api.themoviedb.org/3/discover/movie?api_key=2c97b31d10e9dcecfd977f6061f863d6";
 
 export default function Home() {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   // const abortControllerRef = useRef(null);
@@ -19,14 +22,15 @@ export default function Home() {
 
       try {
         const res = await fetch(
-          `${BASE_URL}${API_KEY}`
+          BASE_URL
           // , {
           //   signal: abortControllerRef.current?.signal,
           // }
         );
 
-        const movies = await res.json();
-        setMovies(movies);
+        const resData = await res.json();
+
+        setMovies(resData.results);
       } catch (error) {
         if (error.name === "AbortError") {
           console.log("Aborted");
@@ -50,5 +54,4 @@ export default function Home() {
 
   // }
 
-  return <p>Home</p>;
 }
