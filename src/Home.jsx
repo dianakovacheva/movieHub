@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import Stack from "@mui/joy/Stack";
 
 import "./Home.css";
 
 import MovieCard from "./components/movie-card/MovieCard";
+import Header from "./components/header/Header";
 
 const BASE_URL =
   "https://api.themoviedb.org/3/discover/movie?api_key=2c97b31d10e9dcecfd977f6061f863d6";
@@ -55,6 +57,18 @@ export default function Home() {
   // }
 
   return (
-    <>{movies ? <MovieCard movies={movies} /> : <p>No movies to show...</p>}</>
+    <>
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        alignItems="center"
+        justifyContent="left"
+        spacing={{ xs: 1, sm: 2, md: 4 }}
+        flexWrap="wrap"
+        useFlexGap
+      >
+        <Header />
+        {movies ? <MovieCard movies={movies} /> : <p>No movies to show...</p>}
+      </Stack>
+    </>
   );
 }
