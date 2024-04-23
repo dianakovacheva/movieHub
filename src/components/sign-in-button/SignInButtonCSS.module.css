@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  gap: 2;
+  flex-wrap: wrap;
+  text-wrap: nowrap;
+  order: 5;
+}
