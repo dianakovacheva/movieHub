@@ -1,12 +1,11 @@
 import * as React from "react";
 import FormControl from "@mui/joy/FormControl";
-import FormLabel from "@mui/joy/FormLabel";
 import Stack from "@mui/joy/Stack";
 import Autocomplete from "@mui/joy/Autocomplete";
 
 export default function SearchField() {
   return (
-    <Stack spacing={2} sx={{ width: "60%" }} order={3}>
+    <Stack spacing={2} sx={{ width: "60%", flexGrow: "1" }} order={3}>
       <FormControl id="free-solo-2-demo">
         <Autocomplete
           placeholder="Search anything..."
