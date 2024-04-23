@@ -7,10 +7,10 @@ import Divider from "@mui/joy/Divider";
 import Typography from "@mui/joy/Typography";
 import IconButton from "@mui/joy/IconButton";
 import Link from "@mui/joy/Link";
-import Favorite from "@mui/icons-material/Favorite";
 import Icon from "@mui/material/Icon";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 
 import MovieCardCSS from "./MovieCardCSS.module.css";
 
@@ -25,8 +25,8 @@ export default function MovieCard(movies) {
           key={movie.id}
           variant="soft"
           sx={{
-            width: 150,
-            height: 300,
+            width: 200,
+            height: 330,
           }}
         >
           <CardOverflow>
@@ -39,25 +39,26 @@ export default function MovieCard(movies) {
               />
             </AspectRatio>
             <IconButton
-              aria-label="Like minimal photography"
-              size="md"
-              variant="solid"
-              color="danger"
+              aria-label="Add to Watchlist"
+              size="lg"
+              variant="soft"
+              color="neutral"
               sx={{
                 position: "absolute",
-                zIndex: 2,
-                borderRadius: "50%",
-                right: "1rem",
-                bottom: 0,
-                transform: "translateY(50%)",
+                top: 0,
+                left: 0,
+                opacity: 0.5,
+                borderTopRightRadius: 0,
+                borderBottomLeftRadius: 0,
+                borderBottomRightRadius: 8,
               }}
             >
-              <Favorite />
+              <BookmarkAddIcon />
             </IconButton>
           </CardOverflow>
           <CardContent>
             <Typography level="title-md">
-              <Link href="#multiple-actions" overlay underline="none">
+              <Link href={movie.id} overlay underline="none">
                 {movie.title}
               </Link>
             </Typography>
@@ -65,12 +66,11 @@ export default function MovieCard(movies) {
           <CardOverflow variant="soft">
             <Divider inset="context" />
             <CardContent
-              orientation="horizontal"
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "space-around",
-                gap: 1,
+                justifyContent: "center",
+                alignItems: "flex-start",
               }}
             >
               <Icon aria-label="Rating" variant="solid">
