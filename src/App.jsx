@@ -1,16 +1,24 @@
 import { useState, useEffect, useRef } from "react";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Stack from "@mui/joy/Stack";
+
+import Login from "./components/login/Login";
+import PageNotFound from "./components/page-not-found/PageNotFound";
+import PopularMovies from "./components/popular-movies/PopularMovies";
+import SignInForm from "./components/signIn-form/SignInForm.jsx";
+import Watchlist from "./components/watchlist/Watchlist";
 
 import "./App.css";
 
-import MovieCard from "./components/movie-card/MovieCard";
 import Header from "./components/header/Header";
+import MovieCard from "./components/movie-card/MovieCard";
 import CircularProgressSpinner from "./components/circular-progress/CircularProgressSpinner";
+import Footer from "./components/footer/Footer";
 
 const BASE_URL =
   "https://api.themoviedb.org/3/discover/movie?api_key=2c97b31d10e9dcecfd977f6061f863d6";
 
-export default function Home() {
+export default function App() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +64,24 @@ export default function Home() {
     return <CircularProgressSpinner />;
   }
 
+  const routers = (
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            movies ? <MovieCard movies={movies} /> : <p>No movies to show...</p>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-in" element={<SignInForm />} />
+        <Route path="/popular-movies" element={<PopularMovies />} />
+        <Route path="/create-watchlist" element={<Watchlist />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </>
+  );
+
   return (
     <>
       <Stack
@@ -67,7 +93,8 @@ export default function Home() {
         useFlexGap
       >
         <Header />
-        {movies ? <MovieCard movies={movies} /> : <p>No movies to show...</p>}
+        {routers}
+        <Footer />
       </Stack>
     </>
   );
