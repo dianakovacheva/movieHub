@@ -1,0 +1,25 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.sectionTitle {
+  font-size: 2rem !important;
+  font-weight: 500;
+  line-height: 2.5rem;
+  letter-spacing: 0.00735em;
+}
+
+.trendingTodayContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  white-space: nowrap;
+  width: 90vw;
+  overflow-x: auto;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
