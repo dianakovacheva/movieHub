@@ -1,3 +1,12 @@
+.cardContainer {
+  width: 180px;
+  height: 330px;
+}
+
+.movieTitle {
+  text-wrap: wrap;
+}
+
 .starIcon {
   color: #f5c518;
 }
