@@ -14,79 +14,73 @@ import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 
 import MovieCardCSS from "./MovieCardCSS.module.css";
 
-export default function MovieCard(movies) {
-  const moviesArray = movies.movies;
+export default function MovieCard(movie) {
   const moviePosterURL = "https://image.tmdb.org/t/p/w500/";
 
   return (
     <>
-      {moviesArray.map((movie) => (
-        <Card
-          key={movie.id}
-          variant="soft"
-          sx={{
-            width: 200,
-            height: 330,
-          }}
-        >
-          <CardOverflow>
-            <AspectRatio ratio="1">
-              <img
-                src={`${moviePosterURL}${movie.poster_path}`}
-                srcSet={`${moviePosterURL}${movie.poster_path}`}
-                loading="lazy"
-                alt={movie.title}
-              />
-            </AspectRatio>
-            <IconButton
-              aria-label="Add to Watchlist"
-              size="lg"
-              variant="soft"
-              color="neutral"
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                opacity: 0.5,
-                borderTopRightRadius: 0,
-                borderBottomLeftRadius: 0,
-                borderBottomRightRadius: 8,
-              }}
-            >
-              <BookmarkAddIcon />
-            </IconButton>
-          </CardOverflow>
-          <CardContent>
-            <Typography level="title-md">
-              <Link href={movie.id} overlay underline="none">
-                {movie.title}
-              </Link>
+      <Card
+        className={MovieCardCSS.cardContainer}
+        variant="soft"
+        key={movie.id}
+      >
+        <CardOverflow>
+          <AspectRatio ratio="1">
+            <img
+              src={`${moviePosterURL}${movie.poster_path}`}
+              srcSet={`${moviePosterURL}${movie.poster_path}`}
+              loading="lazy"
+              alt={movie.title}
+            />
+          </AspectRatio>
+          <IconButton
+            aria-label="Add to Watchlist"
+            size="lg"
+            variant="soft"
+            color="neutral"
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              opacity: 0.5,
+              borderTopRightRadius: 0,
+              borderBottomLeftRadius: 0,
+              borderBottomRightRadius: 8,
+            }}
+          >
+            <BookmarkAddIcon />
+          </IconButton>
+        </CardOverflow>
+        <CardContent className={MovieCardCSS.movieTitle}>
+          <Typography level="title-md">
+            <Link href={movie.id} overlay underline="none">
+              {movie.title}
+            </Link>
+          </Typography>
+        </CardContent>
+        <CardOverflow variant="soft">
+          <Divider inset="context" />
+          <CardContent
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "flex-start",
+            }}
+          >
+            <Icon aria-label="Rating" variant="solid">
+              <StarIcon fontSize="medium" className={MovieCardCSS.starIcon} />
+            </Icon>
+            <Typography level="body-md">
+              {movie.vote_average.toFixed(2).replace(".", ",")}
             </Typography>
+            <Divider orientation="vertical" />
+            <Icon aria-label="Rate movie" variant="Outlined" color="primary">
+              <StarBorderOutlinedIcon fontSize="small" />
+            </Icon>
           </CardContent>
-          <CardOverflow variant="soft">
-            <Divider inset="context" />
-            <CardContent
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "flex-start",
-              }}
-            >
-              <Icon aria-label="Rating" variant="solid">
-                <StarIcon fontSize="medium" className={MovieCardCSS.starIcon} />
-              </Icon>
-              <Typography level="body-md">
-                {movie.vote_average.toFixed(2).replace(".", ",")}
-              </Typography>
-              <Divider orientation="vertical" />
-              <Icon aria-label="Rate movie" variant="Outlined" color="primary">
-                <StarBorderOutlinedIcon fontSize="small" />
-              </Icon>
-            </CardContent>
-          </CardOverflow>
-        </Card>
-      ))}
+        </CardOverflow>
+      </Card>
     </>
   );
 }
