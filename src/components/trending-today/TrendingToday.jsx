@@ -27,7 +27,7 @@ export default function TrendingToday() {
         <Box className={TrendingTodayCSS.trendingTodayContainer}>
           {trendingMoviesToday ? (
             trendingMoviesToday.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
+              <MovieCard key={movie.id} {...movie} />
             ))
           ) : (
             <Typography>No movies to show...</Typography>
