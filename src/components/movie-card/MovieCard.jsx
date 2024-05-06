@@ -18,7 +18,7 @@ export default function MovieCard(movie) {
   const moviePosterURL = "https://image.tmdb.org/t/p/w500/";
 
   return (
-    <>
+    movie && (
       <Card
         className={MovieCardCSS.cardContainer}
         variant="soft"
@@ -81,6 +81,6 @@ export default function MovieCard(movie) {
           </CardContent>
         </CardOverflow>
       </Card>
-    </>
+    )
   );
 }
