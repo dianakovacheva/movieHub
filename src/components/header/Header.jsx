@@ -10,17 +10,24 @@ import CreateWatchlistButton from "../create-watchlist-button/CreateWatchlistBut
 import SignInButton from "../sign-in-button/SignInButton";
 import SwitchMode from "../switch-mode/SwitchMode";
 
+import Sheet from "@mui/joy/Sheet";
+
 export default function Header() {
   return (
     <>
-      <Stack className={HeaderCSS.header}>
-        <Logo />
-        <MenuDropdown />
-        <SearchField />
-        <CreateWatchlistButton />
-        <SignInButton />
-        <SwitchMode />
-      </Stack>
+      <Sheet
+        sx={{ backgroundColor: "neutral" }}
+        className={HeaderCSS.container}
+      >
+        <Stack className={HeaderCSS.navigation}>
+          <Logo />
+          <MenuDropdown />
+          <SearchField />
+          <CreateWatchlistButton />
+          <SignInButton />
+          <SwitchMode />
+        </Stack>
+      </Sheet>
     </>
   );
 }
