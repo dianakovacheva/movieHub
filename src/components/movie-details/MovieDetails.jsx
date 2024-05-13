@@ -54,6 +54,7 @@ export default function MovieDetails() {
   }
 
   if (movieGenres.length > 1) {
+    movieGenres.sort((a, b) => a.localeCompare(b));
     movieGenres = movieGenres.join(", ");
   }
 
