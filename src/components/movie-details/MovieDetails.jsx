@@ -5,9 +5,12 @@ import {
   getMovieVideo,
 } from "../../moviesAPI/MoviesAPI";
 import { useParams } from "react-router-dom";
-import { Box, Typography } from "@mui/joy";
+import { Box, Typography, Grid, Sheet, styled } from "@mui/joy";
+
 import MovieVideoCard from "../movie-video-card/MovieVideoCard";
 import MovieCastList from "../movie-cast-list/MovieCastList";
+
+import MovieDetailsCSS from "./MovieDetailsCSS.module.css";
 
 function convertMinsToHrsMins(minutes) {
   let h = Math.floor(minutes / 60);
@@ -126,45 +129,67 @@ export default function MovieDetails() {
     });
   }
 
+  const Item = styled(Sheet)(({ theme }) => ({
+    backgroundColor:
+      theme.palette.mode === "dark" ? theme.palette.background.level1 : "#fff",
+    ...theme.typography["body-sm"],
+    padding: theme.spacing(1),
+    textAlign: "center",
+    borderRadius: 4,
+    color: theme.vars.palette.text.secondary,
+  }));
+
   return (
     movie && (
-      <Box>
-        <img src={`${moviePosterURL}${movie.poster_path}`} alt={movie.title} />
-        <Typography>{movie.title}</Typography>
-        <Typography>Tagline: {movie.tagline}</Typography>
-        <Typography>{`${releaseYear} (${country})`}</Typography>
-        <Typography>{movieGenres}</Typography>
-        <Typography>{convertMinsToHrsMins(movie.runtime)}</Typography>
-        <Typography>{popularity}</Typography>
-        <Typography>{voteCount}</Typography>
-        <Typography>{movie.overview}</Typography>
+      <Box className={MovieDetailsCSS.movieContainer}>
+        <Typography className={MovieDetailsCSS.movieTitle}>
+          {movie.title}
+        </Typography>
+        <Box className={MovieDetailsCSS.movieInfo}>
+          <Typography>{`${releaseYear} (${country})`}</Typography>
+          <Typography>{convertMinsToHrsMins(movie.runtime)}</Typography>
+        </Box>
+        <Box className={MovieDetailsCSS.movieMedia}>
+          <img
+            src={`${moviePosterURL}${movie.poster_path}`}
+            alt={movie.title}
+            className={MovieDetailsCSS.img}
+          />
+          <MovieVideoCard key={movie.id} movieKey={movieKey} />
+        </Box>
+        <Box>
+          <Typography>{movieGenres}</Typography>
+          <Typography>Tagline: {movie.tagline}</Typography>
+          <Typography>{popularity}</Typography>
+          <Typography>{voteCount}</Typography>
+          <Typography>{movie.overview}</Typography>
 
-        {productionCompanies.length > 1 ? (
-          <Typography>Companies: {productionCompanies}</Typography>
-        ) : (
-          <Typography>Company: {productionCompanies}</Typography>
-        )}
+          {productionCompanies.length > 1 ? (
+            <Typography>Companies: {productionCompanies}</Typography>
+          ) : (
+            <Typography>Company: {productionCompanies}</Typography>
+          )}
 
-        {directors.length > 1 ? (
-          <Typography>Directors: {directors}</Typography>
-        ) : (
-          <Typography>Director: {directors}</Typography>
-        )}
+          {directors.length > 1 ? (
+            <Typography>Directors: {directors}</Typography>
+          ) : (
+            <Typography>Director: {directors}</Typography>
+          )}
 
-        {writers.length > 1 ? (
-          <Typography>Writers: {writers}</Typography>
-        ) : (
-          <Typography>Writer: {writers}</Typography>
-        )}
+          {writers.length > 1 ? (
+            <Typography>Writers: {writers}</Typography>
+          ) : (
+            <Typography>Writer: {writers}</Typography>
+          )}
 
-        {movieGenres.length > 1 ? (
-          <Typography>Genres: {movieGenres}</Typography>
-        ) : (
-          <Typography>Genre: {movieGenres}</Typography>
-        )}
+          {movieGenres.length > 1 ? (
+            <Typography>Genres: {movieGenres}</Typography>
+          ) : (
+            <Typography>Genre: {movieGenres}</Typography>
+          )}
 
-        <MovieVideoCard key={movie.id} movieKey={movieKey} />
-        <MovieCastList movieCast={movieCast} />
+          <MovieCastList movieCast={movieCast} />
+        </Box>
       </Box>
     )
   );
