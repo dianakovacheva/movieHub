@@ -1,10 +1,12 @@
+import BrowseTrailersBtn from "../browse-trailers-btn/browse_trailers_btn";
+
 export default function ListHeroSection() {
   return (
     <div className="flex-1 xs:hidden">
       <p className="pb-5 text-xl text-[#f5c518] tracking-wide font-bold">
         Up next
       </p>
-      <ul className="list w-150 bg-base-100 rounded-box w-full">
+      <ul className="list w-150 bg-base-100 rounded-box w-full mb-2">
         <li className="list-row">
           <div>
             <img
@@ -167,6 +169,8 @@ export default function ListHeroSection() {
           </button>
         </li>
       </ul>
+      {/* Browse Trailers Btn*/}
+      <BrowseTrailersBtn />
     </div>
   );
 }
