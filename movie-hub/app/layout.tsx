@@ -28,9 +28,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-lvw align-baseline flex flex-col flex-wrap justify-center content-center`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-lvw flex flex-col md:flex-row overflow-auto md:overflow-scroll justify-center content-center`}
       >
-        {children}
+        <div className="md:overflow-y-auto">{children}</div>
       </body>
     </html>
   );
