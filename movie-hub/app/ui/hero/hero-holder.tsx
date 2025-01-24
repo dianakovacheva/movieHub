@@ -1,5 +1,5 @@
-import ListHeroSection from "../list-hero-section/list_hero_section";
-import Slider from "../slider/slider";
+import ListHeroSection from "./list-hero-section/list_hero_section";
+import Slider from "./slider/slider";
 
 export default function HeroSection() {
   return (
