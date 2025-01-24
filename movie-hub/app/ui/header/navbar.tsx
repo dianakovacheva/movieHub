@@ -9,7 +9,7 @@ import SignIn from "./sign_in_btn";
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100">
       <div className="flex navbar-start">
         <Link href={"/"} className="btn btn-ghost text-xl">
           MovieHub

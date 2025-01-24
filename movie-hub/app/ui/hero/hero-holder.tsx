@@ -3,7 +3,7 @@ import Slider from "../slider/slider";
 
 export default function HeroSection() {
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <ListHeroSection />
         <div>

@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-lvw flex flex-col md:flex-row overflow-auto md:overflow-scroll justify-center content-center`}
       >
-        <div className="md:overflow-y-auto">{children}</div>
+        {children}
       </body>
     </html>
   );

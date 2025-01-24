@@ -1,7 +1,7 @@
 export default function Slider() {
   return (
-    <div className="carousel w-200">
-      <div id="slide1" className="carousel-item h-150 relative w-full">
+    <div className="carousel w-200 h-150">
+      <div id="slide1" className="carousel-item relative w-full">
         <img
           src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
           className="w-full"
