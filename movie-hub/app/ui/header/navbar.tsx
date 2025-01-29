@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="flex gap-2">
           <WatchListBtn />
           <SignIn />
-          <Swap />
+          {/* <Swap /> */}
         </div>
       </div>
     </div>

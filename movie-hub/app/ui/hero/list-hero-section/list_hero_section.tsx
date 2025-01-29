@@ -6,7 +6,7 @@ export default function ListHeroSection() {
       <p className="pb-5 text-xl text-[#f5c518] tracking-wide font-bold">
         Up next
       </p>
-      <ul className="list w-150 bg-base-100 rounded-box w-full mb-2">
+      <ul className="list rounded-box w-full mb-2">
         <li className="list-row">
           <div>
             <img

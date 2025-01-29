@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function WatchListBtn() {
   return (
-    <Link href={"/watchlist-add"} className="btn">
+    <Link href={"/watchlist"} className="btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
