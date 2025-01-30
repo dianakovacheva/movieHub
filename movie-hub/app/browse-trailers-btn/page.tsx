@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function BrowseTrailersBtn() {
   return (
-    <Link href={"/"} className="btn btn-ghost">
+    <Link href={"/browse-trailers"} className="btn btn-ghost">
       Browse trailers
       <svg
         xmlns="http://www.w3.org/2000/svg"

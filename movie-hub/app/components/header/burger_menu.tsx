@@ -1,7 +1,10 @@
 export default function BurgerMenu() {
   return (
-    <div className="dropdown">
-      <button className="btn btn-ghost" tabIndex={0}>
+    <div className="menu dropdown flex-none text-base dropdown-content rounded-box z-1">
+      <button
+        className="btn-ghost btn-circle flex items-center font-bold hover:cursor-pointer gap-1"
+        tabIndex={0}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="inline-block h-5 w-5 stroke-current"
@@ -16,7 +19,7 @@ export default function BurgerMenu() {
             d="M4 6h16M4 12h16M4 18h16"
           ></path>
         </svg>
-        Menu
+        <span className="hidden sm:flex">Menu</span>
       </button>
       <ul
         tabIndex={0}

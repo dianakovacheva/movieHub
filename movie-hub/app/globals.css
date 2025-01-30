@@ -1,4 +1,12 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+  themes: light --default;
+  /*themes: light --default, dark --prefersdark;*/
+}
+
+body {
+  line-height: 1;
+  margin: 0px auto;
+  padding: 0px 7px;
+  box-sizing: border-box;
 }
