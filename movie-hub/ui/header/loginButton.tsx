@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-export default function SignIn() {
+export default function LoginButton() {
   return (
     <div className="flex-none">
-      <Link href={"/sign-in"} className="btn">
-        Sign In
+      <Link href={"/login"} className="btn">
+        Login
       </Link>
     </div>
   );

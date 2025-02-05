@@ -14,5 +14,8 @@ export default {
       },
     },
   },
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [],
 } satisfies Config;

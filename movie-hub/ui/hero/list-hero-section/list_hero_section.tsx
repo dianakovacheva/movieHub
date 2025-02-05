@@ -1,4 +1,4 @@
-import BrowseTrailersBtn from "../../../browse-trailers-btn/page";
+import BrowseTrailersBtn from "../../../app/browse-trailers-btn/page";
 
 export default function ListHeroSection() {
   return (

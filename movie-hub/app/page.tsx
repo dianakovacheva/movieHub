@@ -1,6 +1,6 @@
-import HeroSection from "./components/hero/hero-holder";
-import FeaturedToday from "./components/featured-today/featured_today";
-import Top10 from "./components/top-10/top_10";
+import HeroSection from "../ui/hero/hero-holder";
+import FeaturedToday from "../ui/featured-today/featured_today";
+import Top10 from "../ui/top-10/top_10";
 
 export default function Page() {
   return (
