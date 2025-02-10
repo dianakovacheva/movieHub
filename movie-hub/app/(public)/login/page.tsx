@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SubmitButton } from "../../../components/auth/submit-button";
 import { Metadata } from "next";
-import { LoginForm } from "../../../components/login/login-form";
+import { LoginForm } from "../../../components/auth/login/login-form";
 
 export const metadata: Metadata = {
   title: "Log In",

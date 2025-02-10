@@ -35,10 +35,8 @@ export default function RootLayout({
       >
         {" "}
         <ThemeProvider enableSystem={true} defaultTheme="system">
-          <main>
-            <Navbar />
-            {children}
-          </main>
+          <Navbar />
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>

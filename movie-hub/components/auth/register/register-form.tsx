@@ -1,19 +1,11 @@
-"use client";
+import { signUp } from "../../../app/actions/auth";
 
-import { useState } from "react";
-import { login } from "../../app/actions/auth";
-
-export function LoginForm({ children }: { children: React.ReactNode }) {
-  const [error, setError] = useState<string | null>(null);
-
+export function RegisterForm({ children }: { children: React.ReactNode }) {
   return (
     <form
       action={async (formData) => {
-        const result = await login(formData);
-
-        if (!result) {
-          setError("Invalid credentials. Please try again.");
-        }
+        "use server";
+        await signUp(formData);
       }}
       className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
     >
@@ -33,6 +25,9 @@ export function LoginForm({ children }: { children: React.ReactNode }) {
           required
           className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 text-gray-800 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
+        {/* {state?.errors?.email && (
+          <p className="text-sm text-red-500">{state.errors.email}</p>
+        )} */}
       </div>
 
       <div>
@@ -49,9 +44,13 @@ export function LoginForm({ children }: { children: React.ReactNode }) {
           required
           className="mt-1 block w-full appearance-none rounded-md border border-gray-300 text-gray-800 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
+        {/* {state?.errors?.password && (
+          <p className="text-sm text-red-500">{state.errors.password}</p>
+        )} */}
       </div>
-
-      {error && <p className="text-sm text-red-500">{error}</p>}
+      {/* {state?.message && (
+        <p className="text-sm text-red-500">{state.message}</p>
+      )} */}
 
       {children}
     </form>
