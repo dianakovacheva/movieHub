@@ -1,19 +1,12 @@
-"use client";
+import { signUp } from "../../app/actions/auth";
 
-import { useActionState } from "react";
-
-export function Form({
-  action,
-  children,
-}: {
-  action: any;
-  children: React.ReactNode;
-}) {
-  const [state, formAction] = useActionState(action, null);
-
+export function RegisterForm({ children }: { children: React.ReactNode }) {
   return (
     <form
-      action={formAction}
+      action={async (formData) => {
+        "use server";
+        await signUp(formData);
+      }}
       className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
     >
       <div>
@@ -32,9 +25,9 @@ export function Form({
           required
           className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 text-gray-800 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
-        {state?.errors?.email && (
+        {/* {state?.errors?.email && (
           <p className="text-sm text-red-500">{state.errors.email}</p>
-        )}
+        )} */}
       </div>
 
       <div>
@@ -51,13 +44,13 @@ export function Form({
           required
           className="mt-1 block w-full appearance-none rounded-md border border-gray-300 text-gray-800 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
-        {state?.errors?.password && (
+        {/* {state?.errors?.password && (
           <p className="text-sm text-red-500">{state.errors.password}</p>
-        )}
+        )} */}
       </div>
-      {state?.message && (
+      {/* {state?.message && (
         <p className="text-sm text-red-500">{state.message}</p>
-      )}
+      )} */}
 
       {children}
     </form>

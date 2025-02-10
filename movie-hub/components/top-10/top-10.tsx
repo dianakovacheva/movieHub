@@ -1,4 +1,4 @@
-import MovieCard from "./movie-card/movie_card";
+import MovieCard from "./movie-card/movie-card";
 
 export default function Top10() {
   return (

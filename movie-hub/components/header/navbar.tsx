@@ -3,7 +3,7 @@ import BurgerMenu from "./burger_menu";
 import WatchListBtn from "./watch_list_btn";
 import SearchContainer from "./search/search-container";
 import ThemeSwitcher from "./theme_switcher";
-import LoginButton from "./loginButton";
+import AuthButton from "./auth_button";
 
 export default function Navbar() {
   return (
@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* Buttons right side */}
         <div className="flex gap-4">
           <WatchListBtn />
-          <LoginButton />
+          <AuthButton />
           <ThemeSwitcher />
         </div>
       </div>

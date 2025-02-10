@@ -1,14 +1,13 @@
 import Link from "next/link";
-import { Form } from "../../../ui/form";
-import { SubmitButton } from "../../../ui/auth/submit-button";
-import { login } from "../../auth/auth";
+import { SubmitButton } from "../../../components/auth/submit-button";
 import { Metadata } from "next";
+import { LoginForm } from "../../../components/login/login-form";
 
 export const metadata: Metadata = {
-  title: "Login",
+  title: "Log In",
 };
 
-export default function Page() {
+export default function LoginPage() {
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
       <div className="z-10 w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 shadow-xl">
@@ -18,7 +17,7 @@ export default function Page() {
             Use your email and password to login
           </p>
         </div>
-        <Form action={login}>
+        <LoginForm>
           <SubmitButton>Login</SubmitButton>
           <p className="text-center text-sm text-gray-600">
             {"Don't have an account? "}
@@ -27,7 +26,7 @@ export default function Page() {
             </Link>
             {" for free."}
           </p>
-        </Form>
+        </LoginForm>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-export const SignupFormSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email." }).trim(),
+export const SignUpFormSchema = z.object({
+  email: z.string().email({ message: "Email is required." }).trim(),
   password: z
     .string()
     .min(8, { message: "Be at least 8 characters long" })
@@ -14,8 +14,8 @@ export const SignupFormSchema = z.object({
 });
 
 export const LoginFormSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email." }),
-  password: z.string().min(1, { message: "Password field must not be empty." }),
+  email: z.string().email({ message: "Email is required." }),
+  password: z.string().min(1, { message: "Password is required." }),
 });
 
 export type FormState =

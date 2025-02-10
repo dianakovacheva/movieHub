@@ -1,14 +1,13 @@
 import Link from "next/link";
-import { Form } from "../../../ui/form";
-import { SubmitButton } from "../../../ui/auth/submit-button";
-import { signup } from "../../auth/auth";
+import { SubmitButton } from "../../../components/auth/submit-button";
 import { Metadata } from "next";
+import { RegisterForm } from "../../../components/register/register-form";
 
 export const metadata: Metadata = {
-  title: "Sign Up",
+  title: "Register",
 };
 
-export default function Page() {
+export default function RegisterPage() {
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
       <div className="z-10 w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 shadow-xl">
@@ -18,7 +17,7 @@ export default function Page() {
             Create an account with your email and password
           </p>
         </div>
-        <Form action={signup}>
+        <RegisterForm>
           <SubmitButton>Sign Up</SubmitButton>
           <p className="text-center text-sm text-gray-600">
             {"Already have an account? "}
@@ -27,7 +26,7 @@ export default function Page() {
             </Link>
             {" instead."}
           </p>
-        </Form>
+        </RegisterForm>
       </div>
     </div>
   );
