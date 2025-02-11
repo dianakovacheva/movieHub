@@ -1,51 +1,33 @@
-export default function FeaturedToday() {
-  return (
+import { getTrendingMoviesToday } from "../../app/actions/movies/movies";
+import moviePosterURL from "../../app/actions/movies/image-API-URL";
+import Image from "next/image";
+import Link from "next/link";
+
+export default async function FeaturedToday() {
+  const trendingMoviesToday = await getTrendingMoviesToday();
+
+  return trendingMoviesToday ? (
     <>
-      <h1 className="text-3xl font-bold text-[#f5c518] mb-5">Featured today</h1>
-      <div className="carousel rounded-box w-full max-w-200 h-[14rem]">
-        <div className="carousel-item w-1/2">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
-            className="w-full"
-          />
-        </div>
-        <div className="carousel-item w-1/2">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
-            className="w-full"
-          />
-        </div>
-        <div className="carousel-item w-1/2">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
-            className="w-full"
-          />
-        </div>
-        <div className="carousel-item w-1/2">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
-            className="w-full"
-          />
-        </div>
-        <div className="carousel-item w-1/2">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
-            className="w-full"
-          />
-        </div>
-        <div className="carousel-item w-1/2">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
-            className="w-full"
-          />
-        </div>
-        <div className="carousel-item w-1/2">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
-            className="w-full"
-          />
+      <h1 className="text-3xl font-extrabold text-[#f5c518] tracking-wide pb-5">
+        Featured today
+      </h1>
+      <div className="carousel rounded-box w-[60vw]">
+        <div className="carousel-item gap-1">
+          {trendingMoviesToday.map((movie) => (
+            <Link href={"/"} key={movie.id}>
+              <Image
+                src={`${moviePosterURL}/${movie!.poster_path}`}
+                alt={`${movie?.title}'s poster`}
+                width={250}
+                height={250}
+                key={movie.id}
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </>
+  ) : (
+    <p>No movie to show.</p>
   );
 }

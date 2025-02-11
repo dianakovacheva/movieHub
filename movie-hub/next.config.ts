@@ -6,9 +6,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "img.daisyui.com",
+        hostname: "image.tmdb.org",
         port: "",
-        pathname: "/images/stock/**",
+        pathname: "/t/p/w500/**",
         search: "",
       },
     ],

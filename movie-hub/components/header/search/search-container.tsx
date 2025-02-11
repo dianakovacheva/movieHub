@@ -1,7 +1,7 @@
 "use client";
 
-import SearchDesktop from "./search-desktop/search_desktop";
-import SearchMobile from "./search-mobile/search_mobile";
+import SearchDesktop from "./search-desktop/search-desktop";
+import SearchMobile from "./search-mobile/search-mobile";
 
 export default function SearchContainer() {
   return (

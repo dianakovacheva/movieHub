@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function WatchListBtn() {
+export default async function WatchListBtn() {
   return (
     <div className="flex-none hidden sm:flex">
       <Link href={"/watchlist"} className="btn">

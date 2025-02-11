@@ -6,10 +6,12 @@
 body {
   line-height: 1;
   margin: 0px auto;
+  padding: 0;
   box-sizing: border-box;
   width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 }
